@@ -1,0 +1,47 @@
+@startuml
+ title Invoive Generator
+
+
+  class ReactContext <<(s,green) store>> {
+    ==states==
+    *invoice
+    *theme -> light -> dark
+  }
+  class Layout <<(c,gray) component>> {
+    ==components==
+    *invoice form
+    *sidebar -> toggleTheme()
+    *main -> view
+  }
+  class HomeView  << (v,red) view>>{
+    ~route
+  }
+  class InvoiceView << (v,red) view>>{
+    ~route
+  }
+
+ class InvoiceList <<(c,gray) component>> {
+   ==props==
+   *id
+   *date
+   *clientName
+   *price
+   *status
+   ==methods==
+    newInvoice()
+    filterInvoiceByStatus()
+    chooseInvoice(id) -> invoiceView
+ }
+ class Invoice <<(c,gray) component>>{
+   
+   ==methods==
+     deleteInvoice(invoiceId)
+     editInvoice(invoiceId) 
+     changeStatus(invoiceId)
+ }
+ ReactContext <..> Layout
+ Layout <..> HomeView
+ Layout <..> InvoiceView
+ HomeView*--InvoiceList
+ InvoiceView*--Invoice
+@enduml

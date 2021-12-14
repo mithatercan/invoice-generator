@@ -1,0 +1,29 @@
+@startjson
+{
+  "senderAdress": {
+    "street": "",
+    "city": "",
+    "postCode": "",
+    "country": ""
+  },
+  "clientAdress": {
+    "street": "",
+    "city": "",
+    "postCode": "",
+    "country": ""
+  },
+  "clientName": "",
+  "clientEmail": "",
+  "createdAt": "",
+  "currency": "dollar",
+  "description": "",
+  "items": [
+    {
+      "name": "",
+      "quantity": "",
+      "price": "",
+      "total": ""
+    }
+  ]
+}
+@endjson
