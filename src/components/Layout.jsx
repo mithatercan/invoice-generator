@@ -4,7 +4,7 @@ import "../scss/components/layout.scss";
 
 const Layout = ({ children }) => {
   return (
-    <div className='layout'>
+    <div className='layout display-flex'>
       <Sidebar />
       <main>
         <section>{children}</section>
