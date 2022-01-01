@@ -1,0 +1,13 @@
+.layout {
+  display: flex;
+  background-color: #f8f8fb;
+
+  main {
+    flex: 11;
+    section {
+      width: 70%;
+      margin: auto;
+      background-color: red;
+    }
+  }
+}
