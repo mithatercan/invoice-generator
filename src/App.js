@@ -1,10 +1,10 @@
 import Layout from "./components/Layout";
-
+import Routes from "./routes";
 function App() {
   return (
-    <div className='App'>
-      <Layout>Main here</Layout>
-    </div>
+    <Layout>
+      <Routes />
+    </Layout>
   );
 }
 
