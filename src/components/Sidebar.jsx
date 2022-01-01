@@ -3,8 +3,8 @@ import { BsFillSunFill, BsFillMoonFill, FaFileInvoiceDollar } from "react-icons/
 import "../scss/components/sidebar.scss";
 const Sidebar = () => {
   return (
-    <div className='sidebar'>
-      <main>
+    <div className='sidebar display-flex fd-column jc-space-between'>
+      <main className='display-flex fd-column jc-space-between'>
         <div className='logo'>
           <FaFileInvoiceDollar />
         </div>
