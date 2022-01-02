@@ -9,7 +9,7 @@ const InvoiceListHeader = () => {
         <h2>Invoices</h2>
         <p>There are 4 total invoices.</p>
       </div>
-      <div className='display-flex'>
+      <div className='display-flex ai-center'>
         <Filter />
         <NewInvoiceBtn />
       </div>
