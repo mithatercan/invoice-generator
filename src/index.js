@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { InvoiceProvider } from "./context/InvoiceContext";
+import { FilterModalProvider } from "./context/FilterModalContext";
 import App from "./App";
 import "./scss/globals/index.scss";
-import { InvoiceProvider } from "./context/InvoiceContext";
 ReactDOM.render(
   <React.StrictMode>
     <InvoiceProvider>
-      <App />
+      <FilterModalProvider>
+        <App />
+      </FilterModalProvider>
     </InvoiceProvider>
   </React.StrictMode>,
   document.getElementById("root")
