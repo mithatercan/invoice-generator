@@ -4,21 +4,21 @@ import InvoiceListItem from "../components/InvoiceListItem";
 const Home = () => {
   const invoiceArr = [
     {
-      id: "#324XASD",
+      id: "#BJ-00-0001",
       date: "12/12/2019",
       customerName: "John Doe",
       amount: "$100",
       status: "Paid",
     },
     {
-      id: "#324XASD",
+      id: "#TR-00-0002",
       date: "12/12/2019",
       customerName: "John Doe",
       amount: "$100",
       status: "Paid",
     },
     {
-      id: "#324XASD",
+      id: "#BJ-00-0003",
       date: "12/12/2019",
       customerName: "John Doe",
       amount: "$100",
