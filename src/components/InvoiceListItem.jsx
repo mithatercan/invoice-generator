@@ -5,7 +5,8 @@ const InvoiceListItem = ({ id, date, customerName, amount, status }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/invoice/${id}`);
+    const idWithoutHash = id.replace("#", "");
+    navigate(`/invoice/${idWithoutHash}`);
   };
 
   return (
