@@ -29,10 +29,11 @@
   footer {
     padding: 1.1em 0;
     border-top: 1px solid gray;
-    img {
-      border-radius: 50%;
-      width: 60px;
+    svg {
+      display: block;
+      font-size: 2em;
       margin: auto;
+      color: #fff;
     }
   }
 }

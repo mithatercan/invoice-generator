@@ -1,5 +1,5 @@
 import React from "react";
-import { BsFillSunFill, BsFillMoonFill, FaFileInvoiceDollar } from "react-icons/all";
+import { GoMarkGithub, BsFillMoonFill, FaFileInvoiceDollar } from "react-icons/all";
 import "../scss/components/sidebar.scss";
 const Sidebar = () => {
   return (
@@ -11,7 +11,7 @@ const Sidebar = () => {
         <button>{<BsFillMoonFill />}</button>
       </main>
       <footer>
-        <img src='https://avatars.githubusercontent.com/u/71825314?v=4' alt='avatar' />
+        <GoMarkGithub />
       </footer>
     </div>
   );
