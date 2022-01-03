@@ -1,22 +1,33 @@
-.filter {
+.filter-dropdown {
   position: relative;
   margin-right: 1em;
   button {
     background: transparent;
-    border: none;
+    svg {
+      color: #7c5dfa;
+      margin-left: 0.3em;
+    }
   }
-  &-options {
+  &__options {
     visibility: hidden;
     position: absolute;
-    top: 2.5em;
+    top: 3em;
+    left: -30%;
     background-color: #fff;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 1em 5em 1em 1em;
+    transform: translateY(-1em);
+    opacity: 0;
+    transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
     &.opened {
+      opacity: 1;
+      transform: translateY(0);
       visibility: visible;
     }
     label {
+      font-size: 0.8em;
+      margin: 0.5em 0;
       input {
         margin-right: 1em;
       }

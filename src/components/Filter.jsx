@@ -2,26 +2,24 @@ import React, { useContext } from "react";
 import { FilterModalContext } from "../context/FilterModalContext";
 import { FiChevronDown, FiChevronUp } from "react-icons/all";
 import "../scss/components/filter.scss";
+import FilterOption from "./FilterOption";
 const Filter = () => {
-  const { isOpen, setIsOpen } = useContext(FilterModalContext);
+  const filterContext = useContext(FilterModalContext);
+  const { isOpen, setIsOpen } = filterContext;
+  const { filters, setFilters } = filterContext;
+  const types = ["Paid", "Pending", "Draft"];
   return (
-    <div className='filter'>
-      <button className='display-flex ai-center' onClick={() => setIsOpen(!isOpen)}>
+    <div className='filter-dropdown'>
+      <button
+        className='filter-dropdown__btn display-flex ai-center'
+        onClick={() => setIsOpen(!isOpen)}
+      >
         Filter by status {isOpen ? <FiChevronUp /> : <FiChevronDown />}
       </button>
-      <div className={`filter-options ${isOpen && "opened"}`}>
-        <label className='display-flex ai-center'>
-          <input type='checkbox' />
-          <span>Paid</span>
-        </label>
-        <label className='display-flex ai-center'>
-          <input type='checkbox' />
-          <span>Paid</span>
-        </label>
-        <label className='display-flex ai-center'>
-          <input type='checkbox' />
-          <span>Paid</span>
-        </label>
+      <div className={`filter-dropdown__options ${isOpen && "opened"}`}>
+        {types.map((type, idx) => (
+          <FilterOption key={idx} type={type} handleChange={() => setFilters(type)} />
+        ))}
       </div>
     </div>
   );
