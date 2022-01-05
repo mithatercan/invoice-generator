@@ -26,12 +26,12 @@ const Home = () => {
     },
   ];
   return (
-    <div>
+    <section className='home-view'>
       <InvoiceListHeader />
       {invoiceArr.map((invoice) => (
         <InvoiceListItem key={invoice.id} {...invoice} />
       ))}
-    </div>
+    </section>
   );
 };
 
