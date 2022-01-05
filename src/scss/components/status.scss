@@ -1,0 +1,21 @@
+.status {
+  height: 3.5em;
+  width: 8em;
+  border-radius: 5px;
+  font-weight: 500;
+  svg {
+    margin-right: 0.3em;
+  }
+  &.paid {
+    background: #f3fdfa;
+    color: #33d69f;
+  }
+  &.pending {
+    background: #fef8f0;
+    color: #fb8f01;
+  }
+  &.draft {
+    background: #f3f3f5;
+    color: #373b53;
+  }
+}
