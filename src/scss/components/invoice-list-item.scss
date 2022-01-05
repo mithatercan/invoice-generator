@@ -1,14 +1,15 @@
 .invoice-list-item {
   width: 100%;
-  padding: 1em 1em;
+  height: 6em;
+  padding: 0 1em;
   border-radius: 10px;
   background-color: #fff;
-  margin: 1em 0;
-  transition: border 0.3s;
+  margin: 1.5em 0;
+  transition: box-shadow 0.2s linear;
   font-size: 0.8em;
-
+  cursor: pointer;
   &:hover {
-    border: 1px solid #7c5dfa;
+    box-shadow: 0 0 0 1px #7c5dfa;
   }
   &__id {
     color: #373b53;
@@ -23,25 +24,5 @@
   }
   &__amount {
     font-weight: bold;
-  }
-  &__status {
-    padding: 0.9em 2em;
-    border-radius: 5px;
-    font-weight: 500;
-    svg {
-      margin-right: 0.3em;
-    }
-    &.paid {
-      background: #f3fdfa;
-      color: #33d69f;
-    }
-    &.pending {
-      background: #fef8f0;
-      color: #fb8f01;
-    }
-    &.draft {
-      background: #f3f3f5;
-      color: #373b53;
-    }
   }
 }

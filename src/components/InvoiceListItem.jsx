@@ -1,13 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { GoPrimitiveDot } from "react-icons/all";
+import Status from "./Status";
 import "../scss/components/invoice-list-item.scss";
 const InvoiceListItem = ({ id, date, customer, amount, status }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    const idWithoutHash = id.replace("#", "");
-    navigate(`/invoice/${idWithoutHash}`);
+    navigate(`/invoice/${id}`);
   };
 
   return (
@@ -22,10 +21,7 @@ const InvoiceListItem = ({ id, date, customer, amount, status }) => {
       <p className='invoice-list-item__date'>{date}</p>
       <p className='invoice-list-item__customer'>{customer}</p>
       <p className='invoice-list-item__amount'>{amount}</p>
-      <div className='invoice-list-item__status pending display-flex ai-center'>
-        <GoPrimitiveDot />
-        {status}
-      </div>
+      <Status status={status} />
     </div>
   );
 };
