@@ -1,0 +1,75 @@
+.invoice {
+  width: 100%;
+  margin-top: 2em;
+  padding: 2em;
+  background-color: #fff;
+  border-radius: 10px;
+  span {
+    display: block;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-top: 0.5em;
+  }
+  small,
+  address {
+    color: #a6abc4;
+    font-size: 0.8em;
+    margin-top: 0.5em;
+    font-style: normal;
+  }
+  main {
+    margin: 2em 0;
+    height: 8em;
+  }
+  table {
+    width: 100%;
+    margin-top: 3em;
+    border-collapse: collapse;
+    background-color: #f9fafe;
+    border-radius: 10px;
+    overflow: hidden;
+    thead {
+      th {
+        font-size: 0.6875em;
+        padding: 2em;
+        font-weight: 400;
+        color: #a6abc4;
+        &:first-child {
+          text-align: left;
+        }
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+    tbody {
+      td {
+        font-size: 0.8em;
+        padding: 2em;
+        text-align: center;
+        &:first-child {
+          font-weight: bold;
+          text-align: left;
+        }
+        &:last-child {
+          font-weight: bold;
+          text-align: right;
+        }
+      }
+    }
+    tfoot {
+      text-align: left;
+      color: #fff;
+      background-color: #373b53;
+      th {
+        padding: 2em;
+        &:first-child {
+          text-align: left;
+        }
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
