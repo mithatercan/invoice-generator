@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FilterModalContext } from "../context/FilterModalContext";
 import { FiChevronDown, FiChevronUp } from "react-icons/all";
 import "../scss/components/filter.scss";
@@ -6,8 +6,9 @@ import FilterOption from "./FilterOption";
 const Filter = () => {
   const filterContext = useContext(FilterModalContext);
   const { isOpen, setIsOpen } = filterContext;
-  const { filters, setFilters } = filterContext;
+  const { filter, setFilter } = filterContext;
   const types = ["Paid", "Pending", "Draft"];
+
   return (
     <div className='filter-dropdown'>
       <button
@@ -18,7 +19,12 @@ const Filter = () => {
       </button>
       <div className={`filter-dropdown__options ${isOpen && "opened"}`}>
         {types.map((type, idx) => (
-          <FilterOption key={idx} type={type} handleChange={() => setFilters(type)} />
+          <FilterOption
+            key={idx}
+            type={type}
+            handleChange={() => setFilter(filter === type ? "" : type)}
+            checked={filter === type}
+          />
         ))}
       </div>
     </div>
