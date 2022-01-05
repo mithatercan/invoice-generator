@@ -1,0 +1,52 @@
+.invoice-header {
+  font-size: 0.8em;
+  button {
+    background: transparent;
+    transition: 0.2s;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
+    svg {
+      margin-right: 1em;
+      color: #7c5dfa;
+    }
+  }
+
+  &__bottom {
+    margin-top: 2em;
+    height: 6em;
+    padding: 0 1em;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    &--left {
+      span {
+        margin-right: 1em;
+        color: #a8adc5;
+      }
+    }
+    &--right {
+      button {
+        margin-left: 1em;
+        color: #fff;
+        padding: 1.3em 2em;
+        border-radius: 50px;
+        &.btn-edit {
+          background-color: #f9fafe;
+          color: black;
+          &:hover {
+            background-color: #dfe3fa;
+            opacity: 1;
+          }
+        }
+        &.btn-delete {
+          background-color: #ec5757;
+        }
+        &.btn-mark {
+          background-color: #9278ff;
+        }
+      }
+    }
+  }
+}
