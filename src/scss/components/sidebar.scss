@@ -1,12 +1,16 @@
 .sidebar {
+  position: sticky;
+  top: 0;
   height: 100vh;
   flex: 1;
   background-color: #373b53;
+  border-radius: 0 15px 15px 0;
+  overflow: hidden;
   main {
     height: 100%;
     .logo {
       background-color: #7c5dfa;
-      padding: 1em 0;
+      padding: 1.8em 0;
       border-radius: 0 0 2em 0;
       svg {
         display: block;
@@ -23,6 +27,7 @@
       outline: none;
       svg {
         color: #fff;
+        font-size: 1.5em;
       }
     }
   }
