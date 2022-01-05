@@ -4,9 +4,16 @@
   main {
     flex: 11;
     section {
-      width: 60%;
-      margin: auto;
-      margin-top: 5em;
+      &.home-view {
+        width: 60%;
+        margin: auto;
+        margin-top: 5em;
+      }
+      &.invoice-view {
+        width: 55%;
+        margin: auto;
+        margin-top: 5em;
+      }
     }
   }
 }
