@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { InvoiceContext } from "../context/InvoiceContext";
 import "../scss/components/invoice.scss";
+import InvoiceTable from "./InvoiceTable";
 const InvoiceCard = ({ id }) => {
+  const invoiceRef = useRef();
+  const { setComponent } = useContext(InvoiceContext);
+  useEffect(() => {
+    setComponent(invoiceRef.current);
+    console.log(invoiceRef.current);
+  }, []);
   return (
-    <div className='invoice'>
+    <div ref={invoiceRef} className='invoice-card'>
       <header className='display-flex jc-space-between'>
         <div>
           <span>#TY9141</span>
@@ -32,53 +40,28 @@ const InvoiceCard = ({ id }) => {
           </div>
         </div>
         <div className='invoice-mid display-flex fd-column jc-space-between'>
+          <small>Bill To</small>
           <div>
-            <small>Bill To</small>
             <span>Thomas Wayne</span>
+            <address>
+              <small>
+                19 Union Terrace
+                <br />
+                London
+                <br />
+                E1 3EZ
+                <br />
+                United Kingdom
+              </small>
+            </address>
           </div>
-          <address>
-            <small>
-              19 Union Terrace
-              <br />
-              London
-              <br />
-              E1 3EZ
-              <br />
-              United Kingdom
-            </small>
-          </address>
         </div>
         <div className='invoice-right'>
           <small>Sent to</small>
-          <span>contact@mithatercan.com</span>
+          <span>thomas@dc.com</span>
         </div>
       </main>
-      <table>
-        <thead>
-          <tr>
-            <th>Item name</th>
-            <th>QTY.</th>
-            <th>Price</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Web design</td>
-            <td>1</td>
-            <td>$100</td>
-            <td>$100</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th>Amount due</th>
-            <th></th>
-            <th></th>
-            <th>$100</th>
-          </tr>
-        </tfoot>
-      </table>
+      <InvoiceTable />
     </div>
   );
 };
