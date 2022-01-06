@@ -1,0 +1,53 @@
+table {
+  width: 100%;
+  margin-top: 3em;
+  border-collapse: collapse;
+  background-color: #f9fafe;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.8em;
+
+  thead {
+    th {
+      padding: 2em 2em 1em 2em;
+      font-weight: 400;
+      color: #a6abc4;
+      &:first-child {
+        text-align: left;
+      }
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
+  tbody {
+    td {
+      padding: 2em;
+      text-align: center;
+      &:first-child {
+        font-weight: bold;
+        text-align: left;
+      }
+      &:last-child {
+        font-weight: bold;
+        text-align: right;
+      }
+    }
+  }
+  tfoot {
+    text-align: left;
+    color: #fff;
+    background-color: #373b53;
+    th {
+      padding: 1em 1em 1em 2em;
+      &:first-child {
+        text-align: left;
+        font-weight: 500;
+      }
+      &:last-child {
+        text-align: right;
+        font-size: 2em;
+      }
+    }
+  }
+}
