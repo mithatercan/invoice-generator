@@ -1,0 +1,32 @@
+.invoice-header {
+  &__bottom {
+    &--right {
+      button {
+        margin-left: 1em;
+        color: #fff;
+        padding: 1.3em 2em;
+        border-radius: 50px;
+        transition: 0.2s ease-in-out;
+        &.btn-edit {
+          background-color: #f9fafe;
+          color: black;
+          &:hover {
+            background-color: #dfe3fa;
+          }
+        }
+        &.btn-delete {
+          background-color: #ec5757;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        &.btn-mark {
+          background-color: #9278ff;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

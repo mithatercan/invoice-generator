@@ -4,7 +4,6 @@ import InvoiceHeader from "../components/InvoiceHeader";
 import InvoiceCard from "../components/InvoiceCard";
 const Invoice = () => {
   const { id } = useParams();
-  console.log(id);
   return (
     <section className='invoice-view'>
       <InvoiceHeader />
