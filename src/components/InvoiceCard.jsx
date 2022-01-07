@@ -7,7 +7,6 @@ const InvoiceCard = ({ id }) => {
   const { setComponent } = useContext(InvoiceContext);
   useEffect(() => {
     setComponent(invoiceRef.current);
-    console.log(invoiceRef.current);
   }, []);
   return (
     <div ref={invoiceRef} className='invoice-card'>
