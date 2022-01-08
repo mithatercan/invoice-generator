@@ -45,3 +45,12 @@
     flex-direction: column;
   }
 }
+
+.fw {
+  &-wrap {
+    flex-wrap: wrap;
+  }
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+}
