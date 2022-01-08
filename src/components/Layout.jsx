@@ -5,7 +5,7 @@ import "../scss/components/layout.scss";
 
 const Layout = ({ children }) => {
   return (
-    <div className='layout display-flex'>
+    <div className='layout display-flex '>
       <Sidebar />
       <main>
         {children} <InvoiceForm />
