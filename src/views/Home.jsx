@@ -1,36 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FilterModalContext } from "../context/FilterModalContext";
 import InvoiceListHeader from "../components/InvoiceListHeader";
 import InvoiceListItem from "../components/InvoiceListItem";
+import data from "../data";
+import "../scss/views/home.scss";
 const Home = () => {
-  const invoiceArr = [
-    {
-      id: "UB0298",
-      date: "12/12/2019",
-      customer: "John Doe",
-      amount: "$100",
-      status: "Paid",
-    },
-    {
-      id: "RG0314",
-      date: "12/12/2019",
-      customer: "John Doe",
-      amount: "$100",
-      status: "Paid",
-    },
-    {
-      id: "XA1449",
-      date: "12/12/2019",
-      customer: "John Doe",
-      amount: "$100",
-      status: "Paid",
-    },
-  ];
+  const { filter } = useContext(FilterModalContext);
   return (
     <section className='home-view'>
       <InvoiceListHeader />
-      {invoiceArr.map((invoice) => (
-        <InvoiceListItem key={invoice.id} {...invoice} />
-      ))}
+      {filter
+        ? data.map(
+            (invoice) =>
+              filter === invoice.status && <InvoiceListItem key={invoice.id} {...invoice} />
+          )
+        : data.map((invoice) => <InvoiceListItem key={invoice.id} {...invoice} />)}
     </section>
   );
 };
