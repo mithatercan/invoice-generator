@@ -7,6 +7,7 @@
   margin: 1.5em 0;
   transition: box-shadow 0.2s linear;
   font-size: 0.8em;
+  animation: fadeInItem 0.3s forwards;
   cursor: pointer;
   &:hover {
     box-shadow: 0 0 0 1px #7c5dfa;

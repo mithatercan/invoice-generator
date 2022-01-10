@@ -1,6 +1,7 @@
 .filter-dropdown {
   position: relative;
   margin-right: 1em;
+
   button {
     background: transparent;
     svg {
@@ -13,6 +14,7 @@
     position: absolute;
     top: 3em;
     left: -30%;
+    z-index: 2;
     background-color: #fff;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     border-radius: 10px;

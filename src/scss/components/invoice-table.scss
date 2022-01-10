@@ -15,6 +15,9 @@ table {
       &:first-child {
         text-align: left;
       }
+      &:nth-child(3) {
+        text-align: right;
+      }
       &:last-child {
         text-align: right;
       }
@@ -27,6 +30,9 @@ table {
       &:first-child {
         font-weight: bold;
         text-align: left;
+      }
+      &:nth-child(3) {
+        text-align: right;
       }
       &:last-child {
         font-weight: bold;
