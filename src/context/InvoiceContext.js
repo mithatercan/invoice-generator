@@ -4,7 +4,7 @@ export const InvoiceContext = createContext();
 
 export const InvoiceProvider = ({ children }) => {
   const [component, setComponent] = useState(null);
-
+  const [invoice, setInvoice] = useState(null);
   const downloadInvoice = async () => {
     const element = component;
     const canvas = await html2canvas(element);
@@ -25,7 +25,7 @@ export const InvoiceProvider = ({ children }) => {
   };
 
   return (
-    <InvoiceContext.Provider value={{ setComponent, downloadInvoice }}>
+    <InvoiceContext.Provider value={{ setComponent, downloadInvoice, invoice, setInvoice }}>
       {children}
     </InvoiceContext.Provider>
   );
