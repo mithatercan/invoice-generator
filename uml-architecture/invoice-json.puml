@@ -1,12 +1,13 @@
 @startjson
 {
-  "senderAdress": {
+  "id" : "",
+  "senderAddress": {
     "street": "",
     "city": "",
     "postCode": "",
     "country": ""
   },
-  "clientAdress": {
+  "clientAddress": {
     "street": "",
     "city": "",
     "postCode": "",
