@@ -6,7 +6,7 @@ import { InvoiceContext } from "../context/InvoiceContext";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBackOutline, AiOutlineCloudDownload } from "react-icons/all";
 
-const InvoiceHeader = () => {
+const InvoiceHeader = ({ status }) => {
   const navigate = useNavigate();
   const { downloadInvoice } = useContext(InvoiceContext);
   const handleGoBack = () => {
@@ -23,7 +23,7 @@ const InvoiceHeader = () => {
       <div className='invoice-header__bottom display-flex jc-space-between ai-center'>
         <div className='invoice-header__bottom--left display-flex ai-center'>
           <span>Status</span>
-          <Status status={"Draft"} />
+          <Status status={status} />
         </div>
         <div className='invoice-header__bottom--right'>
           <button className='btn-edit'>Edit</button>

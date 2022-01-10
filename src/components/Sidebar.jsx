@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { GoMarkGithub, FaFileInvoiceDollar } from "react-icons/all";
-import InvoiceForm from "./InvoiceForm";
+
 import "../scss/components/sidebar.scss";
 const Sidebar = () => {
   return (

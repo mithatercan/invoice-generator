@@ -1,6 +1,9 @@
 import React from "react";
+import calculateAmount from "../helpers/calculateAmount";
 import "../scss/components/invoice-table.scss";
-const InvoiceTable = () => {
+import getSymbolFromCurrency from "currency-symbol-map";
+
+const InvoiceTable = ({ items, currency }) => {
   return (
     <table>
       <thead>
@@ -12,19 +15,30 @@ const InvoiceTable = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Web design</td>
-          <td>1</td>
-          <td>$100</td>
-          <td>$100</td>
-        </tr>
+        {items.map((item) => (
+          <tr>
+            <td>{item.name}</td>
+            <td>{item.quantity}</td>
+            <td>
+              {getSymbolFromCurrency(currency)}
+              {item.price}
+            </td>
+            <td>
+              {getSymbolFromCurrency(currency)}
+              {item.price * item.quantity}
+            </td>
+          </tr>
+        ))}
       </tbody>
       <tfoot>
         <tr>
           <th>Amount due</th>
           <th></th>
           <th></th>
-          <th>$100</th>
+          <th>
+            {getSymbolFromCurrency(currency)}
+            {calculateAmount(items)}
+          </th>
         </tr>
       </tfoot>
     </table>
