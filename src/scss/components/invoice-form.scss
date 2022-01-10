@@ -1,15 +1,22 @@
 form {
-  display: none;
   width: 50%;
   height: 100vh;
   position: fixed;
-  left: 0;
+  z-index: 10;
   top: 0;
+  left: 0;
   padding: 2em 1em;
-  background-color: #fff;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
   border-radius: 0 30px 30px 0;
-  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.486);
   font-size: 0.8em;
+  background-color: #fff;
+  &.opened {
+    transform: translateX(16%);
+    visibility: visible;
+  }
+
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 100%;
@@ -26,6 +33,9 @@ form {
   legend {
     color: #7c5dfa;
     font-weight: 500;
+  }
+  label {
+    color: #6b6b6b;
   }
 
   .form-fields {

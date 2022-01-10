@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InvoiceFormContext } from "../context/InvoiceFormContext";
 import "../scss/components/invoice-form.scss";
+
 const InvoiceForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+  const { isOpened } = useContext(InvoiceFormContext);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={isOpened && "opened"} onSubmit={handleSubmit}>
       <h1>Create Invoice</h1>
       <div className='form-fields'>
         <fieldset>
