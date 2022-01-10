@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiFillPlusCircle } from "react-icons/all";
+import { InvoiceFormContext } from "../context/InvoiceFormContext";
 
 const NewInvoiceBtn = () => {
+  const { setIsOpened } = useContext(InvoiceFormContext);
   return (
-    <button className='display-flex ai-center invoice-btn'>
+    <button onClick={() => setIsOpened(true)} className='display-flex ai-center invoice-btn'>
       <AiFillPlusCircle />
       New Invoice
     </button>
