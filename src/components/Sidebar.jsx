@@ -1,19 +1,30 @@
-import React from "react";
-import { GoMarkGithub, BsFillMoonFill, FaFileInvoiceDollar } from "react-icons/all";
+import React, { useContext } from "react";
+import { GoMarkGithub, FaFileInvoiceDollar } from "react-icons/all";
+import { InvoiceFormContext } from "../context/InvoiceFormContext";
+import InvoiceForm from "./InvoiceForm";
 import "../scss/components/sidebar.scss";
 const Sidebar = () => {
+  const { isOpened, setIsOpened } = useContext(InvoiceFormContext);
   return (
-    <div className='sidebar display-flex fd-column jc-space-between'>
+    <aside className='sidebar display-flex fd-column jc-space-between'>
+      <div className='logo'>
+        <FaFileInvoiceDollar />
+      </div>
+
       <main className='display-flex fd-column jc-space-between'>
-        <div className='logo'>
-          <FaFileInvoiceDollar />
+        <div className='form-wrapper'>
+          <InvoiceForm />
         </div>
-        <button>{<BsFillMoonFill />}</button>
+        <div
+          onClick={() => setIsOpened(false)}
+          className={`${isOpened && "opened"} back-drop`}
+        ></div>
       </main>
+
       <footer>
         <GoMarkGithub />
       </footer>
-    </div>
+    </aside>
   );
 };
 
