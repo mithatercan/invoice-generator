@@ -1,22 +1,15 @@
-import React, { useContext, useEffect } from "react";
-import { InvoiceContext } from "../context/InvoiceContext";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import InvoiceHeader from "../components/InvoiceHeader";
 import InvoiceCard from "../components/InvoiceCard";
-import data from "../data";
+import { DataContext } from "../context/DataContext";
 import "../scss/views/invoice.scss";
 const Invoice = () => {
   const { id } = useParams();
-  const { invoice, setInvoice } = useContext(InvoiceContext);
-
-  useEffect(() => {
-    const invoice = data.find((invoice) => invoice.id === id);
-    setInvoice(invoice);
-  }, [id]);
+  const { state } = useContext(DataContext);
 
   return (
     <section className='invoice-view'>
-      <InvoiceCard />
+      <InvoiceCard invoice={state.find((invoice) => invoice.id === id)} />
     </section>
   );
 };
