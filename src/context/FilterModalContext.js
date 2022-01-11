@@ -3,15 +3,15 @@ import { createContext, useState } from "react";
 export const FilterModalContext = createContext();
 
 export const FilterModalProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
   const [filter, setFilter] = useState("");
   return (
     <FilterModalContext.Provider
       value={{
-        isOpen,
-        setIsOpen,
         filter,
         setFilter,
+        setIsOpened,
+        isOpened,
       }}
     >
       {children}
