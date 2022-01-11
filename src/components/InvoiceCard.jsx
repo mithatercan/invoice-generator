@@ -5,9 +5,9 @@ import Address from "./Address";
 import "../scss/components/invoice.scss";
 import formatDate from "../helpers/formatDate";
 import InvoiceHeader from "./InvoiceHeader";
-const InvoiceCard = () => {
+const InvoiceCard = ({ invoice }) => {
   const invoiceRef = useRef();
-  const { setComponent, invoice } = useContext(InvoiceContext);
+  const { setComponent } = useContext(InvoiceContext);
 
   useEffect(() => {
     setComponent(invoiceRef.current);
@@ -15,7 +15,7 @@ const InvoiceCard = () => {
 
   return invoice ? (
     <div>
-      <InvoiceHeader status={invoice.status} />
+      <InvoiceHeader id={invoice.id} status={invoice.status} />
       <div ref={invoiceRef} className='invoice-card'>
         <header className='display-flex jc-space-between'>
           <div>

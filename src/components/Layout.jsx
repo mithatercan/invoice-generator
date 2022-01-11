@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Sidebar from "./Sidebar";
 import InvoiceForm from "./InvoiceForm";
 import { InvoiceFormContext } from "../context/InvoiceFormContext";
+
 import "../scss/components/layout.scss";
 
 const Layout = ({ children }) => {

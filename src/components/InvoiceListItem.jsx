@@ -6,6 +6,7 @@ import calculateAmount from "../helpers/calculateAmount";
 import "../scss/components/invoice-list-item.scss";
 const InvoiceListItem = ({ id, invoiceDate, clientName, items, status, currency }) => {
   const navigate = useNavigate();
+
   const handleClick = () => {
     navigate(`/invoice/${id}`);
   };

@@ -3,15 +3,28 @@ import "../scss/components/invoice-header.scss";
 import "../scss/components/invoice-header-btns.scss";
 import Status from "./Status";
 import { InvoiceContext } from "../context/InvoiceContext";
+import { DataContext } from "../context/DataContext";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBackOutline, AiOutlineCloudDownload } from "react-icons/all";
 
-const InvoiceHeader = ({ status }) => {
+const InvoiceHeader = ({ status, id }) => {
   const navigate = useNavigate();
   const { downloadInvoice } = useContext(InvoiceContext);
+  const { dispatch } = useContext(DataContext);
+
   const handleGoBack = () => {
     navigate(-1);
   };
+
+  const changeInvoiceStatus = () => {
+    dispatch({ type: "edit", payload: { id: id, data: { status: "Paid" } } });
+  };
+
+  const deleteInvoice = () => {
+    dispatch({ type: "delete", payload: id });
+    navigate(-1);
+  };
+
   return (
     <header className='invoice-header display-flex fd-column  '>
       <div className='invoice-header__top display-flex ai-center jc-space-between'>
@@ -27,8 +40,14 @@ const InvoiceHeader = ({ status }) => {
         </div>
         <div className='invoice-header__bottom--right'>
           <button className='btn-edit'>Edit</button>
-          <button className='btn-delete'>Delete</button>
-          <button className='btn-mark'>Mark as paid</button>
+          <button onClick={deleteInvoice} className='btn-delete'>
+            Delete
+          </button>
+          {status === "Pending" && (
+            <button onClick={changeInvoiceStatus} className='btn-mark'>
+              Mark as paid
+            </button>
+          )}
         </div>
       </div>
     </header>
