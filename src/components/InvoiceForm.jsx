@@ -3,10 +3,15 @@ import { InvoiceFormContext } from "../context/InvoiceFormContext";
 import "../scss/components/invoice-form.scss";
 
 const InvoiceForm = () => {
+  const { isOpened } = useContext(InvoiceFormContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const allInputs = e.target;
+    const formData = new FormData(allInputs);
+    const formProps = Object.fromEntries(formData);
+    console.log(formProps);
   };
-  const { isOpened } = useContext(InvoiceFormContext);
 
   return (
     <form className={isOpened && "opened"} onSubmit={handleSubmit}>
@@ -17,21 +22,21 @@ const InvoiceForm = () => {
           <div className='field-group '>
             <div className='input-wrap'>
               <label>Street Address</label>
-              <input type='text' name='sender.address' />
+              <input type='text' name='address' />
             </div>
           </div>
           <div className='field-group field-group-row display-flex jc-space-between'>
             <div className='input-wrap'>
               <label>City</label>
-              <input type='text' name='sender.city' />
+              <input type='text' name='city[sender]' />
             </div>
             <div className='input-wrap'>
               <label>Post Code</label>
-              <input type='text' name='sender.code' />
+              <input type='text' name='postCode[sender]' />
             </div>
             <div className='input-wrap'>
               <label>Country</label>
-              <input type='text' name='sender.country' />
+              <input type='text' name='country[sender]' />
             </div>
           </div>
         </fieldset>
@@ -40,33 +45,33 @@ const InvoiceForm = () => {
           <div className='field-group '>
             <div className='input-wrap'>
               <label>Client's name</label>
-              <input type='text' name='client.name' />
+              <input type='text' name='name[client]' />
             </div>
           </div>
           <div className='field-group '>
             <div className='input-wrap'>
               <label>Client's Email</label>
-              <input type='text' name='client.email' />
+              <input type='text' name='email[client]' />
             </div>
           </div>
           <div className='field-group '>
             <div className='input-wrap'>
               <label>Street Address</label>
-              <input type='text' name='client.address' />
+              <input type='text' name='address[client]' />
             </div>
           </div>
           <div className='field-group field-group-row display-flex jc-space-between ai-center'>
             <div className='input-wrap'>
               <label>City</label>
-              <input type='text' name='client.city' />
+              <input type='text' name='city[client]' />
             </div>
             <div className='input-wrap'>
               <label>Post Code</label>
-              <input type='text' name='client.code' />
+              <input type='text' name='postCode[client]' />
             </div>
             <div className='input-wrap'>
               <label>Country</label>
-              <input type='text' name='client.country' />
+              <input type='text' name='country[client]' />
             </div>
           </div>
         </fieldset>

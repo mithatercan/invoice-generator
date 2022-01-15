@@ -1,16 +1,24 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { FilterModalContext } from "../context/FilterModalContext";
 import { FiChevronDown, FiChevronUp } from "react-icons/all";
 import "../scss/components/filter.scss";
 import FilterOption from "./FilterOption";
 const Filter = () => {
-  const filterContext = useContext(FilterModalContext);
-  const { isOpened, setIsOpened } = filterContext;
-  const { filter, setFilter } = filterContext;
   const types = ["Paid", "Pending", "Draft"];
 
+  const filterRef = useRef(null);
+  const filterContext = useContext(FilterModalContext);
+
+  const { isOpened, setIsOpened } = filterContext;
+  const { filter, setFilter } = filterContext;
+  const { setRef } = filterContext;
+
+  useEffect(() => {
+    setRef(filterRef);
+  }, []);
+
   return (
-    <div className='filter-dropdown'>
+    <div ref={filterRef} className='filter-dropdown'>
       <button
         className='filter-dropdown__btn display-flex ai-center'
         onClick={() => setIsOpened(!isOpened)}

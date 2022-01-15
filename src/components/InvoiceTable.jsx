@@ -15,8 +15,8 @@ const InvoiceTable = ({ items, currency }) => {
         </tr>
       </thead>
       <tbody>
-        {items.map((item) => (
-          <tr>
+        {items.map((item, idx) => (
+          <tr key={idx}>
             <td>{item.name}</td>
             <td>{item.quantity}</td>
             <td>
