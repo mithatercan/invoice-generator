@@ -1,9 +1,9 @@
 const dataReducer = (state, action) => {
   switch (action.type) {
     case "load":
-      const localData = localStorage.getItem("data");
-      return [...state, JSON.parse(localData)].filter(Boolean);
-
+      // const localData = localStorage.getItem("data");
+      // return [...state, JSON.parse(localData)].filter(Boolean);
+      return state;
     case "add":
       localStorage.setItem("data", JSON.stringify([...state, action.payload]));
       return [...state, action.payload];

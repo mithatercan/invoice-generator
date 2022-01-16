@@ -11,12 +11,12 @@ const Home = () => {
   return (
     <section className='home-view'>
       <InvoiceListHeader />
-      {filter
+      {filter && state
         ? state.map(
             (invoice) =>
               filter === invoice.status && <InvoiceListItem key={invoice.id} {...invoice} />
           )
-        : state.map((invoice) => <InvoiceListItem key={invoice.id} {...invoice} />)}
+        : state && state.map((invoice) => <InvoiceListItem key={invoice.id} {...invoice} />)}
     </section>
   );
 };

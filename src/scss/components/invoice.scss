@@ -5,6 +5,7 @@
   background-color: #fff;
   border-radius: 10px;
   animation: fadeInInvoice 0.3s forwards;
+
   header {
     address {
       text-align: right;
@@ -16,7 +17,9 @@
     font-size: 0.9em;
     margin-top: 0.5em;
   }
-
+  address {
+    width: 9em;
+  }
   small,
   address {
     color: #a6abc4;
@@ -26,7 +29,7 @@
   }
   main {
     margin: 2em 0;
-    height: 7em;
-    width: 90%;
+    height: auto;
+    width: 100%;
   }
 }
