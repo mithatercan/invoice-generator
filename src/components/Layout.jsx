@@ -6,17 +6,14 @@ import { InvoiceFormContext } from "../context/InvoiceFormContext";
 import "../scss/components/layout.scss";
 
 const Layout = ({ children }) => {
-  const { isOpened, setIsOpened } = useContext(InvoiceFormContext);
+  const { isOpened } = useContext(InvoiceFormContext);
   return (
     <div className='layout display-flex '>
       <Sidebar />
       <main>
         {children}
         <InvoiceForm />
-        <div
-          onClick={() => setIsOpened(false)}
-          className={`back-drop ${isOpened && "opened"}`}
-        ></div>
+        <div className={`back-drop ${isOpened && "opened"}`}></div>
       </main>
     </div>
   );

@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { FilterModalContext } from "../context/FilterModalContext";
 import { FiChevronDown, FiChevronUp } from "react-icons/all";
-import "../scss/components/filter.scss";
 import FilterOption from "./FilterOption";
+import useOutsideClick from "../hooks/useOutsideClick";
+import "../scss/components/filter.scss";
 const Filter = () => {
   const types = ["Paid", "Pending", "Draft"];
 
@@ -11,11 +12,10 @@ const Filter = () => {
 
   const { isOpened, setIsOpened } = filterContext;
   const { filter, setFilter } = filterContext;
-  const { setRef } = filterContext;
 
-  useEffect(() => {
-    setRef(filterRef);
-  }, []);
+  useOutsideClick(filterRef, () => {
+    setIsOpened(false);
+  });
 
   return (
     <div ref={filterRef} className='filter-dropdown'>

@@ -1,23 +1,30 @@
-import React, { useContext } from "react";
-
+import React, { useContext, useRef, useEffect } from "react";
 import { InvoiceFormContext } from "../context/InvoiceFormContext";
 import { DataContext } from "../context/DataContext";
+import useOutsideClick from "../hooks/useOutsideClick";
 import "../scss/components/invoice-form.scss";
 
 const InvoiceForm = () => {
+  const formRef = useRef(null);
   const { isOpened, setIsOpened } = useContext(InvoiceFormContext);
   const { data, setData } = useContext(InvoiceFormContext);
   const { dispatch } = useContext(DataContext);
+
+  useOutsideClick(formRef, () => {
+    if (isOpened) {
+      console.log(true);
+    }
+  });
 
   const handleSave = (e) => {
     e.preventDefault();
     dispatch({ type: "add", payload: { ...data, status: "Pending" } });
     setIsOpened(false);
   };
+
   const handleDiscard = (e) => {
     e.preventDefault();
     setIsOpened(false);
-    data({});
   };
 
   const handleDraft = (e) => {
@@ -27,7 +34,7 @@ const InvoiceForm = () => {
   };
 
   return (
-    <form className={isOpened ? "opened" : undefined}>
+    <form ref={formRef} className={isOpened ? "opened" : undefined}>
       <h1>Create Invoice</h1>
       <div className='form-fields'>
         <fieldset>
