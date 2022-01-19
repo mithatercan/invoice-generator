@@ -12,6 +12,7 @@
   &:hover {
     box-shadow: 0 0 0 1px #7c5dfa;
   }
+
   &__id {
     color: #373b53;
     font-weight: bold;
@@ -22,8 +23,10 @@
   &__date,
   &__customer {
     color: #a8acc8;
+    flex: 0.2;
   }
   &__amount {
     font-weight: bold;
+    text-align: right;
   }
 }

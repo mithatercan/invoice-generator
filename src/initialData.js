@@ -1,4 +1,4 @@
-const data = [
+const initialData = [
   {
     id: "UX001",
     status: "Pending",
@@ -17,8 +17,8 @@ const data = [
     },
     clientName: "Mithat Ercan",
     clientEmail: "mithat552@gmail.com",
-    invoiceDate: "12/12/2019",
-    paymentDue: "12/12/2019",
+    invoiceDate: "2022-01-01",
+    paymentDue: "2022-01-01",
     description: "This is a product that we are loving",
     items: [
       {
@@ -46,8 +46,8 @@ const data = [
     },
     clientName: "Serhat Ercan",
     clientEmail: "serhat@serhatercan.com",
-    invoiceDate: "12/12/2019",
-    paymentDue: "12/12/2019",
+    invoiceDate: "2022-01-01",
+    paymentDue: "2022-01-01",
     description: "This is a product that we are loving",
     items: [
       {
@@ -80,8 +80,8 @@ const data = [
     },
     clientName: "Serhat Ercan",
     clientEmail: "serhat@serhatercan.com",
-    invoiceDate: "12/12/2019",
-    paymentDue: "12/12/2019",
+    invoiceDate: "2022-01-01",
+    paymentDue: "2022-01-01",
     description: "This is a product that we are loving",
     items: [
       {
@@ -114,8 +114,8 @@ const data = [
     },
     clientName: "Serhat Ercan",
     clientEmail: "serhat@serhatercan.com",
-    invoiceDate: "12/12/2019",
-    paymentDue: "12/12/2019",
+    invoiceDate: "2022-01-01",
+    paymentDue: "2022-01-01",
     description: "This is a product that we are loving",
     items: [
       {
@@ -148,8 +148,8 @@ const data = [
     },
     clientName: "Serhat Ercan",
     clientEmail: "serhat@serhatercan.com",
-    invoiceDate: "12/12/2019",
-    paymentDue: "12/12/2019",
+    invoiceDate: "2022-01-01",
+    paymentDue: "2022-01-01",
     description: "This is a product that we are loving",
     items: [
       {
@@ -182,8 +182,8 @@ const data = [
     },
     clientName: "Serhat Ercan",
     clientEmail: "serhat@serhatercan.com",
-    invoiceDate: "12/12/2019",
-    paymentDue: "12/12/2019",
+    invoiceDate: "2022-01-01",
+    paymentDue: "2022-01-01",
     description: "This is a product that we are loving",
     items: [
       {
@@ -216,8 +216,8 @@ const data = [
     },
     clientName: "Serhat Ercan",
     clientEmail: "serhat@serhatercan.com",
-    invoiceDate: "12/12/2019",
-    paymentDue: "12/12/2019",
+    invoiceDate: "2022-01-01",
+    paymentDue: "2022-01-01",
     description: "This is a product that we are loving",
     items: [
       {
@@ -250,8 +250,8 @@ const data = [
     },
     clientName: "Serhat Ercan",
     clientEmail: "serhat@serhatercan.com",
-    invoiceDate: "12/12/2019",
-    paymentDue: "12/12/2019",
+    invoiceDate: "2022-01-01",
+    paymentDue: "2022-01-01",
     description: "This is a product that we are loving",
     items: [
       {
@@ -278,4 +278,4 @@ const data = [
   },
 ];
 
-export default data;
+export default initialData;

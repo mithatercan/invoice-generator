@@ -1,41 +1,22 @@
-import React, { useContext, useRef, useEffect } from "react";
-import { InvoiceFormContext } from "../context/InvoiceFormContext";
-import { DataContext } from "../context/DataContext";
+import React, { useContext, useRef } from "react";
+import FormButtons from "./FormButtons";
 import useOutsideClick from "../hooks/useOutsideClick";
+import { FormContext } from "../context/FormContext";
 import "../scss/components/invoice-form.scss";
 
-const InvoiceForm = () => {
+const Form = () => {
   const formRef = useRef(null);
-  const { isOpened, setIsOpened } = useContext(InvoiceFormContext);
-  const { data, setData } = useContext(InvoiceFormContext);
-  const { dispatch } = useContext(DataContext);
+  const { isOpened, toggleForm, type, data, setData } = useContext(FormContext);
 
   useOutsideClick(formRef, () => {
     if (isOpened) {
-      console.log(true);
+      toggleForm();
     }
   });
 
-  const handleSave = (e) => {
-    e.preventDefault();
-    dispatch({ type: "add", payload: { ...data, status: "Pending" } });
-    setIsOpened(false);
-  };
-
-  const handleDiscard = (e) => {
-    e.preventDefault();
-    setIsOpened(false);
-  };
-
-  const handleDraft = (e) => {
-    e.preventDefault();
-    dispatch({ type: "add", payload: { ...data, status: "Draft" } });
-    setIsOpened(false);
-  };
-
   return (
     <form ref={formRef} className={isOpened ? "opened" : undefined}>
-      <h1>Create Invoice</h1>
+      <h1>{type === "edit" ? `${data.id} Edit invoice` : "Create Invoice"}</h1>
       <div className='form-fields'>
         <fieldset>
           <legend>Bill from</legend>
@@ -113,7 +94,7 @@ const InvoiceForm = () => {
               <label>Client's Email</label>
               <input
                 type='text'
-                value={data.senderAddress.clientEmail}
+                value={data.clientEmail}
                 onChange={(e) => setData({ ...data, clientEmail: e.target.value })}
               />
             </div>
@@ -223,21 +204,9 @@ const InvoiceForm = () => {
         </fieldset>
       </div>
 
-      <div className='form-buttons display-flex jc-space-between ai-center'>
-        <button onClick={handleDiscard} className='discard'>
-          Discard
-        </button>
-        <div>
-          <button onClick={handleDraft} className='draft'>
-            Save as draft
-          </button>
-          <button onClick={handleSave} className='save'>
-            Save & Send
-          </button>
-        </div>
-      </div>
+      <FormButtons />
     </form>
   );
 };
 
-export default InvoiceForm;
+export default Form;

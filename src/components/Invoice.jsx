@@ -1,28 +1,21 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { InvoiceContext } from "../context/InvoiceContext";
-import InvoiceTable from "./InvoiceTable";
-import Address from "./Address";
-import "../scss/components/invoice.scss";
+import React from "react";
 import formatDate from "../helpers/formatDate";
 import InvoiceHeader from "./InvoiceHeader";
-const InvoiceCard = ({ invoice }) => {
-  const invoiceRef = useRef();
-  const { setComponent } = useContext(InvoiceContext);
+import InvoiceAddress from "./InvoiceAddress";
+import InvoiceTable from "./InvoiceTable";
+import "../scss/components/invoice.scss";
 
-  useEffect(() => {
-    setComponent(invoiceRef.current);
-  }, []);
-
+const Invoice = ({ invoice }) => {
   return invoice ? (
     <div>
-      <InvoiceHeader id={invoice.id} status={invoice.status} />
-      <div ref={invoiceRef} className='invoice-card'>
+      <InvoiceHeader invoice={invoice} />
+      <div className='invoice-card'>
         <header className='display-flex jc-space-between'>
           <div>
             <span>#{invoice.id}</span>
             <small>{invoice.description}</small>
           </div>
-          <Address {...invoice.senderAddress} />
+          <InvoiceAddress {...invoice.senderAddress} />
         </header>
         <main className='display-flex jc-space-between'>
           <div className='invoice-left display-flex jc-space-between fd-column'>
@@ -39,7 +32,7 @@ const InvoiceCard = ({ invoice }) => {
             <small>Bill To</small>
             <div>
               <span>{invoice.clientName}</span>
-              <Address {...invoice.clientAddress} />
+              <InvoiceAddress {...invoice.clientAddress} />
             </div>
           </div>
           <div className='invoice-right'>
@@ -55,4 +48,4 @@ const InvoiceCard = ({ invoice }) => {
   );
 };
 
-export default InvoiceCard;
+export default Invoice;

@@ -1,7 +1,7 @@
 import React from "react";
 import calculateAmount from "../helpers/calculateAmount";
-import "../scss/components/invoice-table.scss";
 import getSymbolFromCurrency from "currency-symbol-map";
+import "../scss/components/invoice-table.scss";
 
 const InvoiceTable = ({ items, currency }) => {
   return (

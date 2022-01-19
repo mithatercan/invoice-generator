@@ -1,18 +1,16 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import { AiFillPlusCircle } from "react-icons/all";
-import { InvoiceFormContext } from "../context/InvoiceFormContext";
-import useOutsideClick from "../hooks/useOutsideClick";
+import { FormContext } from "../context/FormContext";
 
 const NewInvoiceBtn = () => {
-  const { setIsOpened } = useContext(InvoiceFormContext);
-  const formButtonRef = useRef(null);
+  const { toggleForm } = useContext(FormContext);
+
+  const handleClick = () => {
+    toggleForm();
+  };
 
   return (
-    <button
-      ref={formButtonRef}
-      onClick={() => setIsOpened(true)}
-      className='display-flex ai-center invoice-btn'
-    >
+    <button onClick={handleClick} className='display-flex ai-center invoice-btn'>
       <AiFillPlusCircle />
       New Invoice
     </button>

@@ -15,7 +15,6 @@ export const InvoiceProvider = ({ children }) => {
     if (typeof link.download === "string") {
       link.href = data;
       link.download = "image.jpg";
-
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

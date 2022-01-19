@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
 import Sidebar from "./Sidebar";
-import InvoiceForm from "./InvoiceForm";
-import { InvoiceFormContext } from "../context/InvoiceFormContext";
+import Form from "./Form";
+import { FormContext } from "../context/FormContext";
 
 import "../scss/components/layout.scss";
 
 const Layout = ({ children }) => {
-  const { isOpened } = useContext(InvoiceFormContext);
+  const { isOpened } = useContext(FormContext);
   return (
     <div className='layout display-flex '>
       <Sidebar />
       <main>
         {children}
-        <InvoiceForm />
+        <Form />
         <div className={`back-drop ${isOpened && "opened"}`}></div>
       </main>
     </div>

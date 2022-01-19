@@ -1,17 +1,15 @@
-import React, { useContext, useRef } from "react";
-import { FilterModalContext } from "../context/FilterModalContext";
+import React, { useContext, useRef, useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/all";
+import { DataContext } from "../context/DataContext";
 import FilterOption from "./FilterOption";
 import useOutsideClick from "../hooks/useOutsideClick";
 import "../scss/components/filter.scss";
+
 const Filter = () => {
   const types = ["Paid", "Pending", "Draft"];
-
   const filterRef = useRef(null);
-  const filterContext = useContext(FilterModalContext);
-
-  const { isOpened, setIsOpened } = filterContext;
-  const { filter, setFilter } = filterContext;
+  const [isOpened, setIsOpened] = useState();
+  const { setFilter, filter } = useContext(DataContext);
 
   useOutsideClick(filterRef, () => {
     setIsOpened(false);
@@ -25,6 +23,7 @@ const Filter = () => {
       >
         Filter by status {isOpened ? <FiChevronUp /> : <FiChevronDown />}
       </button>
+
       <div className={`filter-dropdown__options ${isOpened && "opened"}`}>
         {types.map((type, idx) => (
           <FilterOption
