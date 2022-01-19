@@ -1,6 +1,6 @@
 import React from "react";
 
-const Address = ({ street, city, postCode, country }) => {
+const InvoiceAddress = ({ street, city, postCode, country }) => {
   return (
     <address>
       <small>
@@ -16,4 +16,4 @@ const Address = ({ street, city, postCode, country }) => {
   );
 };
 
-export default Address;
+export default InvoiceAddress;
