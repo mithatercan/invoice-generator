@@ -14,6 +14,22 @@ const Form = () => {
     }
   });
 
+  const handleAddItem = (e) => {
+    e.preventDefault();
+    setData({
+      ...data,
+      items: [
+        ...data.items,
+        {
+          name: "",
+          quantity: "",
+          price: "",
+          total: "",
+        },
+      ],
+    });
+  };
+
   return (
     <form ref={formRef} className={isOpened ? "opened" : undefined}>
       <h1>{type === "edit" ? `${data.id} Edit invoice` : "Create Invoice"}</h1>
@@ -201,6 +217,61 @@ const Form = () => {
               />
             </div>
           </div>
+        </fieldset>
+        <fieldset>
+          <legend>Invoice Items</legend>
+          {data.items.map((item, index) => (
+            <div className='field-group display-flex  field-group-row'>
+              <div className='input-wrap'>
+                <label>Item Name</label>
+                <input
+                  type='text'
+                  value={item.name}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      items: data.items.map((a, b) =>
+                        b === index ? { ...a, name: e.target.value } : a
+                      ),
+                    })
+                  }
+                />
+              </div>
+              <div className='input-wrap'>
+                <label>Qty.</label>
+                <input
+                  type='number'
+                  value={item.quantity}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      items: data.items.map((a, b) =>
+                        b === index ? { ...a, quantity: e.target.value } : a
+                      ),
+                    })
+                  }
+                />
+              </div>
+              <div className='input-wrap'>
+                <label>Price</label>
+                <input
+                  type='number'
+                  value={item.price}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      items: data.items.map((a, b) =>
+                        b === index ? { ...a, price: e.target.value } : a
+                      ),
+                    })
+                  }
+                />
+              </div>
+            </div>
+          ))}
+          <button className='item' onClick={handleAddItem}>
+            Add new item
+          </button>
         </fieldset>
       </div>
 
