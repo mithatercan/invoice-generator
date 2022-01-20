@@ -7,10 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { IoChevronBackOutline, AiOutlineCloudDownload } from "react-icons/all";
 import "../scss/components/invoice-header.scss";
 import "../scss/components/invoice-header-btns.scss";
+import DeleteModal from "./DeleteModal";
 
 const InvoiceHeader = ({ invoice }) => {
   const navigate = useNavigate();
-  const { downloadInvoice } = useContext(InvoiceContext);
+  const { downloadInvoice, isModalOpened, setIsModalOpened } = useContext(InvoiceContext);
   const { setData, toggleForm, setType } = useContext(FormContext);
   const { dispatch } = useContext(DataContext);
 
@@ -25,6 +26,7 @@ const InvoiceHeader = ({ invoice }) => {
   const deleteInvoice = () => {
     dispatch({ type: "delete", payload: invoice.id });
     handleGoBack();
+    // setIsModalOpened(!isModalOpened);
   };
 
   const editInvoice = () => {
@@ -60,6 +62,8 @@ const InvoiceHeader = ({ invoice }) => {
           )}
         </div>
       </div>
+
+      <DeleteModal isOpened={isModalOpened} />
     </header>
   );
 };

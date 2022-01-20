@@ -7,7 +7,6 @@ const InvoiceView = () => {
   const { id } = useParams();
   const { state } = useContext(DataContext);
 
-  console.log(state.find((invoice) => invoice.id === id));
   return (
     <section className='invoice-view'>
       <Invoice invoice={state.find((invoice) => invoice.id === id)} />

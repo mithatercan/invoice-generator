@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import Sidebar from "./Sidebar";
 import Form from "./Form";
 import { FormContext } from "../context/FormContext";
-
 import "../scss/components/layout.scss";
 
 const Layout = ({ children }) => {
