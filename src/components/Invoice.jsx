@@ -1,50 +1,78 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
+import { InvoiceContext } from "../context/InvoiceContext";
 import formatDate from "../helpers/formatDate";
 import InvoiceHeader from "./InvoiceHeader";
 import InvoiceAddress from "./InvoiceAddress";
 import InvoiceTable from "./InvoiceTable";
+import html2canvas from "html2canvas";
 import "../scss/components/invoice.scss";
 
-const Invoice = ({ invoice }) => {
-  return invoice ? (
+const Invoice = () => {
+  const { invoice } = useContext(InvoiceContext);
+  const invoiceRef = useRef();
+
+  const {
+    id,
+    description,
+    senderAddress,
+    clientAddress,
+    invoiceDate,
+    paymentDue,
+    clientEmail,
+    clientName,
+    currency,
+    items,
+    status,
+  } = invoice;
+
+  const handleDownload = async () => {
+    const canvas = await html2canvas(invoiceRef.current);
+    const data = canvas.toDataURL("image/jpg");
+    const link = document.createElement("a");
+    link.href = data;
+    link.download = "downloaded-image.jpg";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
     <div>
-      <InvoiceHeader invoice={invoice} />
-      <div className='invoice-card'>
+      <InvoiceHeader handleDownload={handleDownload} />
+      <div ref={invoiceRef} className='invoice-card'>
         <header className='display-flex jc-space-between'>
           <div>
-            <span>#{invoice.id}</span>
-            <small>{invoice.description}</small>
+            <span>#{id}</span>
+            <small>{description}</small>
           </div>
-          <InvoiceAddress {...invoice.senderAddress} />
+          <InvoiceAddress {...senderAddress} />
         </header>
         <main className='display-flex jc-space-between'>
           <div className='invoice-left display-flex jc-space-between fd-column'>
             <div className='invoice-left__top'>
               <small>Invoice Date</small>
-              <span>{formatDate(invoice.invoiceDate)}</span>
+              <span>{formatDate(invoiceDate)}</span>
             </div>
             <div className='invoice-left__bottom'>
               <small>Payment Due</small>
-              <span>{formatDate(invoice.paymentDue)}</span>
+              <span>{formatDate(paymentDue)}</span>
             </div>
           </div>
           <div className='invoice-mid display-flex fd-column jc-space-between'>
             <small>Bill To</small>
             <div>
-              <span>{invoice.clientName}</span>
-              <InvoiceAddress {...invoice.clientAddress} />
+              <span>{clientName}</span>
+              <InvoiceAddress {...clientAddress} />
             </div>
           </div>
           <div className='invoice-right'>
             <small>Sent to</small>
-            <span>{invoice.clientEmail}</span>
+            <span>{clientEmail}</span>
           </div>
         </main>
-        <InvoiceTable currency={invoice.currency} items={invoice.items} />
+        <InvoiceTable currency={currency} items={items} />
       </div>
     </div>
-  ) : (
-    "Loading..."
   );
 };
 
