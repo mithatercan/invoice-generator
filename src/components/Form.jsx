@@ -1,6 +1,8 @@
 import React, { useContext, useRef } from "react";
 import FormButtons from "./FormButtons";
+import { FiTrash2 } from "react-icons/all";
 import useOutsideClick from "../hooks/useOutsideClick";
+import generateUID from "../helpers/generateUID";
 import { FormContext } from "../context/FormContext";
 import "../scss/components/invoice-form.scss";
 
@@ -21,6 +23,7 @@ const Form = () => {
       items: [
         ...data.items,
         {
+          id: generateUID(),
           name: "",
           quantity: "",
           price: "",
@@ -221,7 +224,7 @@ const Form = () => {
         <fieldset>
           <legend>Invoice Items</legend>
           {data.items.map((item, index) => (
-            <div className='field-group display-flex  field-group-row'>
+            <div className='display-flex ai-center field-group-row'>
               <div className='input-wrap'>
                 <label>Item Name</label>
                 <input
@@ -230,8 +233,8 @@ const Form = () => {
                   onChange={(e) =>
                     setData({
                       ...data,
-                      items: data.items.map((a, b) =>
-                        b === index ? { ...a, name: e.target.value } : a
+                      items: data.items.map((a) =>
+                        item.id === a.id ? { ...a, name: e.target.value } : a
                       ),
                     })
                   }
@@ -245,8 +248,8 @@ const Form = () => {
                   onChange={(e) =>
                     setData({
                       ...data,
-                      items: data.items.map((a, b) =>
-                        b === index ? { ...a, quantity: e.target.value } : a
+                      items: data.items.map((a) =>
+                        a.id === item.id ? { ...a, quantity: e.target.value } : a
                       ),
                     })
                   }
@@ -261,11 +264,27 @@ const Form = () => {
                     setData({
                       ...data,
                       items: data.items.map((a, b) =>
-                        b === index ? { ...a, price: e.target.value } : a
+                        a.id === item.id ? { ...a, price: e.target.value } : a
                       ),
                     })
                   }
                 />
+              </div>
+
+              <div className='input-wrap'>
+                <label>Action</label>
+                <button
+                  type='button'
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    setData({
+                      ...data,
+                      items: data.items.filter((a) => a.id !== item.id),
+                    });
+                  }}
+                >
+                  <FiTrash2 size={20} />
+                </button>
               </div>
             </div>
           ))}

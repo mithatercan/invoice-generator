@@ -22,6 +22,7 @@ const initialData = [
     description: "This is a product that we are loving",
     items: [
       {
+        id: "213HSQK",
         name: "Mackbook Pro",
         quantity: 2,
         price: 3000,
@@ -51,11 +52,13 @@ const initialData = [
     description: "This is a product that we are loving",
     items: [
       {
+        id: "1123LKHJ",
         name: "Mackbook Pro",
         quantity: 1,
         price: 300000,
       },
       {
+        id: "2ALK23NL",
         name: "Airpods Pro 2",
         quantity: 3,
         price: 500,
@@ -85,11 +88,13 @@ const initialData = [
     description: "This is a product that we are loving",
     items: [
       {
+        id: "1231HLK",
         name: "Mackbook Pro",
         quantity: 1,
         price: 300000,
       },
       {
+        id: "12JK3H1KJ3H",
         name: "Airpods Pro 2",
         quantity: 3,
         price: 500,
@@ -119,11 +124,13 @@ const initialData = [
     description: "This is a product that we are loving",
     items: [
       {
+        id: "0912JHSD",
         name: "Mackbook Pro",
         quantity: 1,
         price: 300000,
       },
       {
+        id: "1KJH313",
         name: "Airpods Pro 2",
         quantity: 3,
         price: 500,
@@ -153,11 +160,13 @@ const initialData = [
     description: "This is a product that we are loving",
     items: [
       {
+        id: "12JKG3JKRF",
         name: "Mackbook Pro",
         quantity: 1,
         price: 300000,
       },
       {
+        id: "3984HWDF",
         name: "Airpods Pro 2",
         quantity: 3,
         price: 500,
@@ -187,11 +196,13 @@ const initialData = [
     description: "This is a product that we are loving",
     items: [
       {
+        id: "389ASUDI",
         name: "Mackbook Pro",
         quantity: 1,
         price: 300000,
       },
       {
+        id: "9832IOHDA",
         name: "Airpods Pro 2",
         quantity: 3,
         price: 500,
@@ -221,11 +232,13 @@ const initialData = [
     description: "This is a product that we are loving",
     items: [
       {
+        id: "10AS9D8AD",
         name: "Mackbook Pro",
         quantity: 1,
         price: 300000,
       },
       {
+        id: "19083ASODI",
         name: "Airpods Pro 2",
         quantity: 3,
         price: 500,
@@ -255,21 +268,25 @@ const initialData = [
     description: "This is a product that we are loving",
     items: [
       {
+        id: "1J2HEWDSA90U",
         name: "Mackbook Pro",
         quantity: 1,
         price: 300000,
       },
       {
+        id: "32189DWJKSH",
         name: "Airpods Pro 2",
         quantity: 3,
         price: 500,
       },
       {
+        id: "2398WDJSKHD",
         name: "PS5",
         quantity: 1,
         price: 1200,
       },
       {
+        id: "IUYERW9UJD",
         name: "LG TV",
         quantity: 1,
         price: 1350,
