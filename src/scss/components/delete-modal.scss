@@ -1,29 +1,36 @@
-.delete-modal {
+.modal-container {
+  display: grid;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 25em;
-  padding: 3em 2em;
-  background: #fff;
-  border-radius: 5px;
-  z-index: 100;
-  p {
-    color: #888eb0;
-    font-size: 0.8em;
-    margin: 2em 0;
-  }
-  button {
-    padding: 1em 2em;
-    border-radius: 50px;
-    margin-left: 1em;
-  }
-  button:first-child {
-    background-color: #f9fafe;
-    color: #7e88c3;
-  }
-  button:last-child {
-    background-color: #ec5757;
-    color: #fff;
+  z-index: 40;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.658);
+  .delete-modal {
+    margin: auto;
+    width: 25em;
+    padding: 3em 2em;
+    background: #fff;
+    border-radius: 5px;
+    z-index: 100;
+    p {
+      color: #888eb0;
+      font-size: 0.8em;
+      margin: 2em 0;
+    }
+    button {
+      padding: 1em 2em;
+      border-radius: 50px;
+      margin-left: 1em;
+    }
+    button:first-child {
+      background-color: #f9fafe;
+      color: #7e88c3;
+    }
+    button:last-child {
+      background-color: #ec5757;
+      color: #fff;
+    }
   }
 }
