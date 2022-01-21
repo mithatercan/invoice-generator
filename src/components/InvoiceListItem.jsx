@@ -4,6 +4,7 @@ import getSymbolFromCurrency from "currency-symbol-map";
 import Status from "./Status";
 import calculateAmount from "../helpers/calculateAmount";
 import "../scss/components/invoice-list-item.scss";
+
 const InvoiceListItem = ({ id, invoiceDate, clientName, items, status, currency }) => {
   const navigate = useNavigate();
 

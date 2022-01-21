@@ -43,20 +43,25 @@ form {
     height: 85%;
     padding: 0 3em;
   }
+
   .field-group-row {
     .input-wrap {
       flex: 1;
-      &:first-child {
+      &:nth-child(n + 1) {
         margin-right: 1em;
       }
+      &:first-child {
+        margin-left: 0;
+      }
       &:last-child {
-        margin-left: 1em;
+        margin-right: 0;
       }
     }
   }
 
   .input-wrap {
     display: flex;
+    height: 100%;
     flex-direction: column;
     margin: 1em 0;
   }
@@ -76,6 +81,8 @@ form {
       border-color: #7c5dfa;
     }
   }
+
+  //buttons
 
   button {
     padding: 1em 2em;
