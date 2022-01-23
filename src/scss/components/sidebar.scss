@@ -7,6 +7,9 @@
   background-color: #373b53;
   border-radius: 0 15px 15px 0;
   overflow: hidden;
+  @media screen and (max-width: 768px) {
+    display: none !important;
+  }
   .logo {
     position: relative;
     background-color: #7c5dfa;

@@ -15,6 +15,10 @@ form {
   &.opened {
     transform: translateX(15%);
     visibility: visible;
+
+    @media screen and (max-width: 768px) {
+      transform: translateX(0%);
+    }
   }
 
   @media screen and (max-width: 768px) {
@@ -22,6 +26,7 @@ form {
     height: 100%;
     border-radius: 0;
   }
+
   h1 {
     padding: 0 1.5em;
   }
@@ -49,6 +54,9 @@ form {
       flex: 1;
       &:nth-child(n + 1) {
         margin-right: 1em;
+        @media screen and (max-width: 768px) {
+          margin-right: 0.5em;
+        }
       }
       &:first-child {
         margin-left: 0;
@@ -83,13 +91,11 @@ form {
   }
 
   //buttons
-
-  button {
-    padding: 1em 2em;
-    border-radius: 50px;
-    font-weight: 500;
-    transition: 0.2s;
+  .form-buttons {
+    background-color: #fff;
+    padding: 1em;
   }
+
   .discard {
     background: #f9fafe;
     color: #7e88c3;
@@ -104,9 +110,16 @@ form {
     color: #fff;
     margin: 0 0.3em;
   }
+  .delete {
+    color: #000;
+    &:hover {
+      color: #ec5757;
+    }
+  }
   .item {
     width: 100%;
     margin-top: 1em;
+    color: #000;
     &:hover {
       background-color: #242424;
       color: #fff;

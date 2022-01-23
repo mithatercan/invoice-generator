@@ -3,6 +3,9 @@
   &__heading {
     h1 {
       font-size: 2em;
+      @media screen and (max-width: 768px) {
+        font-size: 1.5em;
+      }
     }
     small {
       color: #aeb2cc;
@@ -18,6 +21,9 @@
     svg {
       font-size: 2.2em;
       margin-right: 0.2em;
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
     }
   }
 }

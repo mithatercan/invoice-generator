@@ -7,6 +7,9 @@ body {
   font-size: 1em;
   font-weight: 300;
   font-family: "Spartan", sans-serif;
+  @media screen and (max-width: 768px) {
+    font-size: 0.9em;
+  }
 }
 ul,
 li {
@@ -19,8 +22,19 @@ input {
   border: none;
 }
 
+small {
+  display: block;
+}
 button {
+  color: #fff;
   cursor: pointer;
+  padding: 1em 2em;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: 0.2s;
+  @media screen and (max-width: 768px) {
+    padding: 0.6em 1.2em;
+  }
 }
 
 img {

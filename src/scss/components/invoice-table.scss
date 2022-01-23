@@ -6,10 +6,15 @@ table {
   border-radius: 10px;
   overflow: hidden;
   font-size: 0.8em;
-
+  @media screen and (max-width: 768px) {
+    margin-bottom: 8em;
+  }
   thead {
     th {
-      padding: 2em 2em 1em 2em;
+      padding: 1em 1em 0.5em 1em;
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
       font-weight: 400;
       color: #a6abc4;
       &:first-child {
@@ -25,7 +30,7 @@ table {
   }
   tbody {
     td {
-      padding: 2em;
+      padding: 2em 1em;
       text-align: center;
       &:first-child {
         font-weight: bold;
@@ -45,7 +50,7 @@ table {
     color: #fff;
     background-color: #373b53;
     th {
-      padding: 1em 1em 1em 2em;
+      padding: 1em;
       &:first-child {
         text-align: left;
         font-weight: 500;

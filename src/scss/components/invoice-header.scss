@@ -1,10 +1,14 @@
 .invoice-header {
   font-size: 0.8em;
   animation: fadeInInvoice 0.3s forwards;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
   .go-back {
+    color: #000;
     background: transparent;
-    transition: 0.2s;
-    cursor: pointer;
+    padding: 0;
     &:hover {
       opacity: 0.6;
     }
@@ -27,7 +31,14 @@
     width: 100%;
     background: #fff;
     border-radius: 10px;
+
     &--left {
+      @media screen and (max-width: 768px) {
+        margin: auto;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+      }
       span {
         margin-right: 1em;
         color: #a8adc5;
