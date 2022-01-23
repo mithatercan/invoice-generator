@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   const { isOpened } = useContext(FormContext);
 
   return (
-    <div className='layout display-flex '>
+    <div className='layout display-flex'>
       <DeleteModal />
       <Sidebar />
       <main>

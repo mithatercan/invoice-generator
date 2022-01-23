@@ -4,7 +4,7 @@ import { FiTrash2 } from "react-icons/all";
 import useOutsideClick from "../hooks/useOutsideClick";
 import generateUID from "../helpers/generateUID";
 import { FormContext } from "../context/FormContext";
-import "../scss/components/invoice-form.scss";
+import "../scss/components/form.scss";
 
 const Form = () => {
   const formRef = useRef(null);
@@ -226,7 +226,7 @@ const Form = () => {
           {data.items.map((item, index) => (
             <div className='display-flex ai-center field-group-row'>
               <div className='input-wrap'>
-                <label>Item Name</label>
+                <label>Name</label>
                 <input
                   type='text'
                   value={item.name}
@@ -274,6 +274,7 @@ const Form = () => {
               <div className='input-wrap'>
                 <label>Action</label>
                 <button
+                  className='delete'
                   type='button'
                   onMouseDown={(e) => {
                     e.preventDefault();

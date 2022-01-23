@@ -21,7 +21,7 @@ const Filter = () => {
         className='filter-dropdown__btn display-flex ai-center'
         onClick={() => setIsOpened(!isOpened)}
       >
-        Filter by status {isOpened ? <FiChevronUp /> : <FiChevronDown />}
+        Filter by status{isOpened ? <FiChevronUp /> : <FiChevronDown />}
       </button>
 
       <div className={`filter-dropdown__options ${isOpened && "opened"}`}>

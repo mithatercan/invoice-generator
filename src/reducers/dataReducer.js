@@ -1,9 +1,16 @@
+import initialData from "../initialData";
+
 const dataReducer = (state, action) => {
   switch (action.type) {
     case "load":
-      // const localData = localStorage.getItem("data");
-      // return [...state, JSON.parse(localData)].filter(Boolean);
-      return state;
+      const localData = localStorage.getItem("data");
+      if (localData) {
+        return [...JSON.parse(localData)].filter(Boolean);
+      } else {
+        localStorage.setItem("data", JSON.stringify(initialData));
+        return [...initialData];
+      }
+
     case "add":
       localStorage.setItem("data", JSON.stringify([...state, action.payload]));
       return [...state, action.payload];
@@ -22,11 +29,6 @@ const dataReducer = (state, action) => {
           state.map((item) =>
             item.id === action.payload.id ? { ...item, ...action.payload.data } : item
           )
-        )
-      );
-      console.log(
-        state.map((item) =>
-          item.id === action.payload.id ? { ...item, ...action.payload.data } : item
         )
       );
       return state.map((item) =>

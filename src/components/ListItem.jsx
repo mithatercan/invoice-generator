@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import getSymbolFromCurrency from "currency-symbol-map";
 import Status from "./Status";
 import calculateAmount from "../helpers/calculateAmount";
-import "../scss/components/invoice-list-item.scss";
+import "../scss/components/list-item.scss";
 
-const InvoiceListItem = ({ id, invoiceDate, clientName, items, status, currency }) => {
+const ListItem = ({ id, invoiceDate, clientName, items, status, currency }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -15,7 +15,7 @@ const InvoiceListItem = ({ id, invoiceDate, clientName, items, status, currency 
   return (
     <div
       onClick={handleClick}
-      className='invoice-list-item display-flex ai-center jc-space-between'
+      className='invoice-list-item display-flex ai-center jc-space-between fw-wrap'
     >
       <div className='invoice-list-item__id'>
         <span>#</span>
@@ -32,4 +32,4 @@ const InvoiceListItem = ({ id, invoiceDate, clientName, items, status, currency 
   );
 };
 
-export default InvoiceListItem;
+export default ListItem;

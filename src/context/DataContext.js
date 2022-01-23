@@ -1,10 +1,9 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import dataReducer from "../reducers/dataReducer";
-import initialData from "../initialData";
-export const DataContext = createContext();
 
+export const DataContext = createContext();
 export const DataProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(dataReducer, initialData);
+  const [state, dispatch] = useReducer(dataReducer, []);
   const [filter, setFilter] = useState("");
   const [data, setData] = useState([]);
 
@@ -14,11 +13,11 @@ export const DataProvider = ({ children }) => {
     } else {
       setData(state);
     }
-  }, [filter, state]);
 
-  useEffect(() => {
-    dispatch({ type: "load" });
-  }, []);
+    if (state.length === 0) {
+      dispatch({ type: "load" });
+    }
+  }, [filter, state]);
 
   return (
     <DataContext.Provider value={{ dispatch, state, data, setFilter, filter }}>

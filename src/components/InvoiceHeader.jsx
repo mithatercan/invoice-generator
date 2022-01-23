@@ -1,21 +1,21 @@
 import React, { useContext } from "react";
-import { IoChevronBackOutline, AiOutlineCloudDownload } from "react-icons/all";
+import { IoChevronBackOutline } from "react-icons/all";
 import { FormContext } from "../context/FormContext";
 import { InvoiceContext } from "../context/InvoiceContext";
 import { DataContext } from "../context/DataContext";
 import { useNavigate } from "react-router-dom";
 import Status from "./Status";
 import "../scss/components/invoice-header.scss";
-import "../scss/components/invoice-header-btns.scss";
+import "../scss/components/invoice-header-buttons.scss";
 
-const InvoiceHeader = ({ handleDownload }) => {
+const InvoiceHeader = () => {
   const navigate = useNavigate();
   const { invoice, setIsModalOpened, isModalOpened } = useContext(InvoiceContext);
   const { setData, toggleForm, setType } = useContext(FormContext);
   const { dispatch } = useContext(DataContext);
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   const changeInvoiceStatus = () => {
@@ -34,11 +34,10 @@ const InvoiceHeader = ({ handleDownload }) => {
 
   return (
     <header className='invoice-header display-flex fd-column'>
-      <div className='invoice-header__top display-flex ai-center jc-space-between'>
+      <div className='invoice-header__top'>
         <button onClick={handleGoBack} className='go-back display-flex ai-center'>
           <IoChevronBackOutline /> Go back
         </button>
-        <AiOutlineCloudDownload onClick={handleDownload} className='download' />
       </div>
       <div className='invoice-header__bottom display-flex jc-space-between ai-center'>
         <div className='invoice-header__bottom--left display-flex ai-center'>

@@ -1,15 +1,14 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, createRef } from "react";
 import { InvoiceContext } from "../context/InvoiceContext";
 import formatDate from "../helpers/formatDate";
 import InvoiceHeader from "./InvoiceHeader";
 import InvoiceAddress from "./InvoiceAddress";
 import InvoiceTable from "./InvoiceTable";
-import html2canvas from "html2canvas";
 import "../scss/components/invoice.scss";
 
 const Invoice = () => {
   const { invoice } = useContext(InvoiceContext);
-  const invoiceRef = useRef();
+  const invoiceRef = createRef();
 
   const {
     id,
@@ -22,24 +21,12 @@ const Invoice = () => {
     clientName,
     currency,
     items,
-    status,
   } = invoice;
 
-  const handleDownload = async () => {
-    const canvas = await html2canvas(invoiceRef.current);
-    const data = canvas.toDataURL("image/jpg");
-    const link = document.createElement("a");
-    link.href = data;
-    link.download = "downloaded-image.jpg";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
-    <div>
-      <InvoiceHeader handleDownload={handleDownload} />
-      <div ref={invoiceRef} className='invoice-card'>
+    <div className='invoice-container'>
+      <InvoiceHeader />
+      <div className='invoice-card' ref={invoiceRef}>
         <header className='display-flex jc-space-between'>
           <div>
             <span>#{id}</span>
@@ -47,7 +34,7 @@ const Invoice = () => {
           </div>
           <InvoiceAddress {...senderAddress} />
         </header>
-        <main className='display-flex jc-space-between'>
+        <main className='display-flex jc-space-between fw-wrap'>
           <div className='invoice-left display-flex jc-space-between fd-column'>
             <div className='invoice-left__top'>
               <small>Invoice Date</small>
